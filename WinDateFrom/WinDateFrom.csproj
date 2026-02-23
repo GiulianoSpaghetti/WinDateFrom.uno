@@ -1,0 +1,70 @@
+<Project Sdk="Uno.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0-android36.1;net10.0-desktop</TargetFrameworks>
+
+    <OutputType>Exe</OutputType>
+    <UnoSingleProject>true</UnoSingleProject>
+
+    <!-- Display name -->
+    <ApplicationTitle>Date From</ApplicationTitle>
+    <!-- App Identifier -->
+    <ApplicationId>org.altervista.numerone.windatefrom</ApplicationId>
+    <!-- Versions -->
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <!-- Package Publisher -->
+    <ApplicationPublisher>numer</ApplicationPublisher>
+    <!-- Package Description -->
+    <Description>WinDateFrom powered by Uno Platform.</Description>
+
+    <!--
+      UnoFeatures are used to quickly add and manage features enabled for your app.
+      https://aka.platform.uno/singleproject-features
+    -->
+    <UnoFeatures>
+      Material;
+      Dsp;
+      Hosting;
+      Toolkit;
+      Logging;
+      Mvvm;
+      Configuration;
+      HttpKiota;
+      Serialization;
+      Localization;
+      Navigation;
+      ThemeService;
+      SkiaRenderer;
+    </UnoFeatures>
+      <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">28.0</SupportedOSPlatformVersion>
+      <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
+      <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</TargetPlatformMinVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+      <WindowsPackageType>MSIX</WindowsPackageType>
+      <PackageCertificateThumbprint>53139CCE245FC089760A02023E43B7EBAB093510</PackageCertificateThumbprint>
+      <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+      <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+      <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+      <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+      <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+      <GenerateTestArtifacts>True</GenerateTestArtifacts>
+      <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+  </PropertyGroup>
+  <PropertyGroup>
+      <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.26100.0</TargetFrameworks>
+  </PropertyGroup>
+      <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Console" />
+      <PackageReference Include="Microsoft.Kiota.Abstractions" />
+      <PackageReference Include="Microsoft.Kiota.Http.HttpClientLibrary" />
+      <PackageReference Include="Microsoft.Kiota.Serialization.Form" />
+      <PackageReference Include="Microsoft.Kiota.Serialization.Json" />
+      <PackageReference Include="Microsoft.Kiota.Serialization.Multipart" />
+      <PackageReference Include="Microsoft.Kiota.Serialization.Text" />
+  </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'net10.0-windows10.0.26100.0'">
+        <PackageReference Include="Microsoft.WindowsAppSDK" />
+    </ItemGroup>
+</Project>
