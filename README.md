@@ -52,6 +52,12 @@ Per cambiare il linguaggio su windows devi cambiare la lingua dell'UI di sistema
 Su debian cambia il formato in due lettere del linguaggio in $HOME/.local/share/GiulioSorrentino/Date-From/LocalState/config/appsettings.LocalizationSettings.json.
 Su android cancella i dati dell'applicativo.
 
+
+## L'internazionalizzazione in UNO
+Aprite il file appsettings.json e in CULTURES inserite la stringa internazionale a due caratteri del linguaggio in cui intendete tradurre l'applicativo, dopodiché in STRINGS create una cartella con la stessa denominazione e create il file resw, come se fosse in c# liscio e traducete.
+
+Infine seguite la [guida ufficiale](https://platform.uno/docs/articles/external/uno.extensions/doc/Overview/Localization/LocalizationOverview.html) per scrivere il codice per recuperare le stringhe tradotte.
+
 ## Note
 La app è un semplice pannellino che salva un nome ed una data impostato per visualizzare un arco di 100 anni in cui la media è proprio adesso.
 Se la data passa, comunque rimane ed è visibile, solo che non è più selezionabile.
