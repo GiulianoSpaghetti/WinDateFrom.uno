@@ -48,5 +48,8 @@
     <GenerateTestArtifacts>False</GenerateTestArtifacts>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Uno.Themes.WinUI.Markup" />
+  </ItemGroup>
 
 </Project>
