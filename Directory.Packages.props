@@ -8,6 +8,7 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageVersion Include="Uno.Themes.WinUI.Markup" Version="6.1.1" />
   </ItemGroup>
 </Project>
