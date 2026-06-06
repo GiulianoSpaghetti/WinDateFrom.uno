@@ -50,6 +50,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: MSIX
-        path: WinDateFrom/AppPackages
+        path: WinDateFrom\bin\Release\net10.0-windows10.0.26100.0\AppPackages
         include-hidden-files: true
         if-no-files-found: error
