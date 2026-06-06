@@ -1,0 +1,55 @@
+name: .NET Uno Build
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Release]
+
+    env:
+      Solution_Name: WinDateFrom.slnx
+      Configuration: ${{ matrix.configuration }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 10.0.x
+
+    - name: Import PFX certificate
+      run: |
+        $pfx_password = ConvertTo-SecureString "${{ secrets.PFX_KEY }}" -AsPlainText -Force
+        $pfxBytes = [System.Convert]::FromBase64String("${{ secrets.BASE64_ENCODED_PFX }}")
+        $pfxPath = Join-Path $env:RUNNER_TEMP "signing.pfx"
+        [System.IO.File]::WriteAllBytes($pfxPath, $pfxBytes)
+        Import-PfxCertificate -FilePath $pfxPath -CertStoreLocation Cert:\CurrentUser\My -Password $pfx_Password
+        Write-Host "Certificate safely imported to store."
+      shell: pwsh
+
+    - name: Restore packages
+      run: dotnet restore WinDateFrom.slnx -r win-x64
+
+    - name: Build MAUI MSIX
+      run: |
+        dotnet publish WinDateFrom/WinDateFrom.csproj -f net10.0-windows10.0.26100.0 -p:publishProfile=.\WinDateFrom\Properties\PublishProfiles\MSIX-win-x64.pubxml
+      shell: pwsh
+
+    - name: Upload MSIX artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: MSIX
+        path: WinDateFrom/AppPackages
+        include-hidden-files: true
+        if-no-files-found: error
