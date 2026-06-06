@@ -39,7 +39,7 @@ jobs:
       shell: pwsh
 
     - name: Restore packages
-      run: dotnet restore WinDateFrom.slnx -r win-x64
+      run: dotnet restore WinDateFrom.slnx -r win-arm64
 
     - name: Build UNO MSIX
       run: |
