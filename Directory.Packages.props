@@ -6,14 +6,5 @@
     See https://aka.platform.uno/using-uno-sdk#implicit-packages for more information regarding the Implicit Packages.
   -->
   <ItemGroup>
-      <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.1" />
-      <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="10.0.1" />
-      <PackageVersion Include="Microsoft.Kiota.Abstractions" Version="1.21.0" />
-      <PackageVersion Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.21.0" />
-      <PackageVersion Include="Microsoft.Kiota.Serialization.Form" Version="1.21.0" />
-      <PackageVersion Include="Microsoft.Kiota.Serialization.Json" Version="1.21.0" />
-      <PackageVersion Include="Microsoft.Kiota.Serialization.Multipart" Version="1.21.0" />
-      <PackageVersion Include="Microsoft.Kiota.Serialization.Text" Version="1.21.0" />
-      <PackageVersion Include="Microsoft.WindowsAppSDK" Version="1.8.251106002" />
   </ItemGroup>
 </Project>

@@ -21,12 +21,12 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <Image x:Name="backgroundImage" Source="/Assets/background.jpg" Grid.RowSpan="5" Grid.ColumnSpan="2" Stretch="Fill"/>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Insert the Name"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding InsertName}"/>
                 <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Nome, Mode=TwoWay}" IsEnabled="{Binding NomeEnabled}"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Select date"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding InsertDate}" />
                 <DatePicker Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Data, Mode=TwoWay}" />
-                <Button Command="{Binding Calcola}" Grid.Row="2" Grid.Column="1" Opacity="0.5" Content="Calculate"/>
-            <Button Command="{Binding Augura}" Grid.Row="2" Grid.Column="0" Opacity="0.5" Content="Wish happy anniversary" Visibility="{Binding AuguraVisible}" />
+                <Button Command="{Binding Calcola}" Grid.Row="2" Grid.Column="1" Opacity="0.5" Content="{Binding Calculate}"/>
+            <Button Command="{Binding Augura}" Grid.Row="2" Grid.Column="0" Opacity="0.5" Content="{Binding Wish}" Visibility="{Binding AuguraVisible}" />
             <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Risultato}" />
             <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Anniversario}" />
         </Grid>

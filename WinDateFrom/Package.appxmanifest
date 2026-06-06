@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap rescap">
 
-  <Identity  Name="Date-From" Version="3.0.0.0" Publisher="CN=Giulio Sorrentino, O=numeronesoft, C=IT"/>
+  <Identity  Name="WinDateFrom-Uno" Version="3.1.9.0" Publisher="CN=Giulio Sorrentino, O=numeronesoft, C=IT"/>
   <Properties >
   
   <Logo>Assets/Icons/PackageLogo.png</Logo>
   
-  <DisplayName>Date From</DisplayName>
+  <DisplayName>WinDateFrom</DisplayName>
   
   <PublisherDisplayName>Giulio Sorrentino</PublisherDisplayName>
   </Properties >
@@ -28,8 +28,8 @@
     <Application Id="App"
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
-      <uap:VisualElements  DisplayName="Date From" Square150x150Logo="Assets/Icons/MediumTile.png" Square44x44Logo="Assets/Icons/AppIcon.png">
-        <uap:DefaultTile Square71x71Logo="Assets/Icons/SmallTile.png" Wide310x150Logo="Assets/Icons/WideTile.png" Square310x310Logo="Assets/Icons/LargeTile.png"/>
+      <uap:VisualElements  DisplayName="WinDateFrom Uno" Description="Un programma per calcolare quanto tempo è passato da un incontro" Square150x150Logo="Assets/Icons/MediumTile.png" Square44x44Logo="Assets/Icons/AppIcon.png" BackgroundColor="#000000">
+        <uap:DefaultTile Square71x71Logo="Assets/Icons/SmallTile.png" Wide310x150Logo="Assets/Icons/WideTile.png" Square310x310Logo="Assets/Icosn/LargeTile.png"/>
         <uap:SplashScreen Image="Assets/Splash/SplashScreen.png"/>
       </uap:VisualElements >
     </Application>

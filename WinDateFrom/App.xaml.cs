@@ -1,5 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
+using ilfortunedinumeroneuno.Presentation;
 using Uno.Resizetizer;
-using Microsoft.UI.Windowing;
 
 namespace WinDateFrom;
 
@@ -11,21 +12,13 @@ public partial class App : Application
     /// </summary>
     public App()
     {
-    #if HAS_UNO
-        Uno.UI.FeatureConfiguration.Style.UseUWPDefaultStyles = false;
-#endif
         this.InitializeComponent();
-#if HAS_UNO
-        Uno.UI.ApplicationHelper.RequestedCustomTheme = nameof(ApplicationTheme.Dark);
-#else
-    this.RequestedTheme = ApplicationTheme.Dark;
-#endif
-
     }
 
     protected Window? MainWindow { get; private set; }
     protected IHost? Host { get; private set; }
 
+    [SuppressMessage("Trimming", "IL2026:Members annotated with 'RequiresUnreferencedCodeAttribute' require dynamic access otherwise can break functionality when trimming application code", Justification = "Uno.Extensions APIs are used in a way that is safe for trimming in this template context.")]
     protected async override void OnLaunched(LaunchActivatedEventArgs args)
     {
         var builder = this.CreateBuilder(args)
@@ -86,7 +79,7 @@ public partial class App : Application
                     // TODO: Register your services
                     //services.AddSingleton<IMyService, MyService>();
                 })
-                .UseNavigation(RegisterRoutes)
+                .UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
             );
         MainWindow = builder.Window;
 
@@ -96,21 +89,20 @@ public partial class App : Application
         MainWindow.SetWindowIcon();
 
         Host = await builder.NavigateAsync<Shell>();
-        ((OverlappedPresenter)MainWindow.AppWindow.Presenter).Maximize();
     }
 
     private static void RegisterRoutes(IViewRegistry views, IRouteRegistry routes)
     {
         views.Register(
-            new ViewMap(ViewModel: typeof(ShellViewModel)),
-            new ViewMap<MainPage, MainViewModel>()
+            new ViewMap(ViewModel: typeof(ShellModel)),
+            new ViewMap<MainPage, MainModel>()
         );
 
         routes.Register(
-            new RouteMap("", View: views.FindByViewModel<ShellViewModel>(),
+            new RouteMap("", View: views.FindByViewModel<ShellModel>(),
                 Nested:
                 [
-                    new ("Main", View: views.FindByViewModel<MainViewModel>(), IsDefault:true)
+                    new ("Main", View: views.FindByViewModel<MainModel>(), IsDefault:true)
                 ]
             )
         );
