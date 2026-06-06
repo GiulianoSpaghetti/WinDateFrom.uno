@@ -41,9 +41,9 @@ jobs:
     - name: Restore packages
       run: dotnet restore WinDateFrom.slnx -r win-x64
 
-    - name: Build MAUI MSIX
+    - name: Build UNO MSIX
       run: |
-        dotnet publish WinDateFrom/WinDateFrom.csproj -f net10.0-windows10.0.26100.0 -p:publishProfile=.\WinDateFrom\Properties\PublishProfiles\MSIX-win-x64.pubxml
+        dotnet publish WinDateFrom/WinDateFrom.csproj -f net10.0-windows10.0.26100.0 -p:publishProfile=.\WinDateFrom\Properties\PublishProfiles\MSIX-win-arm64.pubxml
       shell: pwsh
 
     - name: Upload MSIX artifact
