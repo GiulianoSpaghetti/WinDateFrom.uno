@@ -1,3 +1,5 @@
+[![.NET Uno Build](https://github.com/GiulianoSpaghetti/WinDateFrom.uno/actions/workflows/dotnet-desktop.yml/badge.svg)](https://github.com/GiulianoSpaghetti/WinDateFrom.uno/actions/workflows/dotnet-desktop.yml)
+
 ## WinDateFrom uno
 Il primo programma per pc e per smartphone in uno platform dedicato alle donne che non è un videogioco.
 Serve per rompere il ghiaccio durante una relazione interpersonale, ossia per approcciare.
