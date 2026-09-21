@@ -11,8 +11,8 @@
     <PackageVersion Include="CommunityToolkit.Mvvm" Version="8.4.2" />
     <PackageVersion Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2705" />
     <PackageVersion Include="Microsoft.Windows.SDK.BuildTools.WinApp" Version="0.6.1" />
-    <PackageVersion Include="Microsoft.WindowsAppSDK" Version="2.4.0" />
-    <PackageVersion Include="Uno.Settings.DevServer" Version="1.13.4" />
+    <PackageVersion Include="Microsoft.WindowsAppSDK" Version="2.5.1" />
+    <PackageVersion Include="Uno.Settings.DevServer" Version="1.13.10" />
     <PackageVersion Include="Uno.Themes.WinUI.Markup" Version="7.1.1" />
   </ItemGroup>
 </Project>
