@@ -54,7 +54,6 @@
         <PackageReference Include="Microsoft.Windows.SDK.BuildTools.WinApp" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Mvvm" />
         <PackageReference Include="Uno.Settings.DevServer" />
         <PackageReference Include="Uno.Themes.WinUI.Markup" />
     </ItemGroup>
