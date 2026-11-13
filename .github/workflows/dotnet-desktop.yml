@@ -39,11 +39,11 @@ jobs:
       shell: pwsh
 
     - name: Restore packages
-      run: dotnet restore WinDateFrom.slnx -r win-x64
+      run: dotnet restore WinDateFrom.slnx -r win-arm64
 
     - name: Build UNO MSIX
       run: |
-        dotnet publish WinDateFrom/WinDateFrom.csproj -f net10.0-windows10.0.26100.0 -p:publishProfile=.\WinDateFrom\Properties\PublishProfiles\MSIX-win-x64.pubxml
+        dotnet publish WinDateFrom/WinDateFrom.csproj -f net10.0-windows10.0.26100.0 -p:publishProfile=.\WinDateFrom\Properties\PublishProfiles\MSIX-win-arm64.pubxml
       shell: pwsh
 
     - name: Upload MSIX artifact
