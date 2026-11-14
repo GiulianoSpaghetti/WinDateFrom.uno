@@ -50,7 +50,8 @@ public partial class MainModel : ObservableObject
     public string? Anniversario { get; private set; }
     private string ricorrenza;
     public Visibility AuguraVisible { get; private set; }
-     
+
+    public DateTimeOffset Toay (get;} = DateTime.Now(); 
     public DateTimeOffset Data { get; set; }
     public ICommand Augura { get; }
     public ICommand Calcola { get; }
