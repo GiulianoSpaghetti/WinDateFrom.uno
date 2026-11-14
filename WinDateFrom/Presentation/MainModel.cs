@@ -51,7 +51,7 @@ public partial class MainModel : ObservableObject
     private string ricorrenza;
     public Visibility AuguraVisible { get; private set; }
 
-    public DateTimeOffset Today (get;} = DateTime.Now(); 
+    public DateTimeOffset Today (get;} =DateTimeOffset.Now; 
     public DateTimeOffset Data { get; set; }
     public ICommand Augura { get; }
     public ICommand Calcola { get; }
